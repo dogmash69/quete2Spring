@@ -14,12 +14,11 @@ public class DoctorController {
 
     @GetMapping("/doctor/{number}")
     @ResponseBody
-    public Doctor doctor(@PathVariable int number, @RequestParam(defaultValue = "", required = false) String name) {
+    public Doctor doctor(@PathVariable int number) {
 
         if(number == 13) {
-            String docName = name.replace("_", " ");
 
-            return new Doctor(number, docName);
+            return new Doctor(13, "Forest Whitteker");
         }
 
         if(number >=1 && number <=12) {
